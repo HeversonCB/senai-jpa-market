@@ -1,7 +1,11 @@
 package market.application;
 
+import javax.persistence.EntityManager;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import market.connection.JpaConnectionFactory;
 
 public class Program {
 
@@ -9,7 +13,7 @@ public class Program {
 
 	public static void main(String[] args) {
 
-		LOG.info("Hello World Log4j");
+		EntityManager entityManager = new JpaConnectionFactory().getEntityManager();
 
 	}
 }
