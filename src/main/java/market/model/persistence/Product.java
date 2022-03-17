@@ -32,8 +32,8 @@ public class Product {
 	private Category category;
 
 	public Product(String name, String description, BigDecimal price, Category category) {
-		this.name = name;
-		this.description = description;
+		this.name = name.toLowerCase();
+		this.description = description.toLowerCase();
 		this.price = price;
 		this.category = category;
 	}

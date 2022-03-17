@@ -15,5 +15,4 @@ public class JpaConnectionFactory {
 	public EntityManager getEntityManager() {
 		return this.factory.createEntityManager();
 	}
-
 }
