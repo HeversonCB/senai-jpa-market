@@ -30,6 +30,10 @@ public class Product {
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "category_id")
 	private Category category;
+	
+	public Product() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public Product(String name, String description, BigDecimal price, Category category) {
 		this.name = name.toLowerCase();

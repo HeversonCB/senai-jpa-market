@@ -17,14 +17,13 @@ public class Program {
 	private static final Logger LOG = LogManager.getLogger(Program.class);
 
 	public static void main(String[] args) {
-
 		EntityManager entityManager = new JpaConnectionFactory().getEntityManager();
-		
 		ProductService productService = new ProductService(entityManager);
 		
-		Product product = new Product("Notebook", "Acer Aspire 5", new BigDecimal(3.550), new Category("Informática"));
+		Product product = new Product("Doritos", "Black Edition", new BigDecimal(14.99), new Category("Alimento"));
 		
-		productService.create(product);
+//		productService.create(product);
+		productService.delete(2L);
 
 	}
 }
