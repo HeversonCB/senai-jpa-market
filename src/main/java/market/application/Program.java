@@ -22,7 +22,7 @@ public class Program {
 		ProductService productService = new ProductService(entityManager);
 		CategoryService categoryService = new CategoryService(entityManager);
 		
-		Product product = new Product("Cheetos", "Requeijao 180g", new BigDecimal(12.00), new Category("Alimento"));
+		Product product = new Product("Cheetos", "Requeijao 180g", new BigDecimal(12.00), new Category("alimento"));
 		productService.create(product);
 //		productService.delete(2L);
 		
