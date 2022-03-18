@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import market.model.dao.ProductDAO;
+import market.model.persistence.Category;
 import market.model.persistence.Product;
 
 public class ProductService {
@@ -16,10 +17,13 @@ public class ProductService {
 	private EntityManager entityManager;
 
 	private ProductDAO productDAO;
+	
+	private CategoryService categoryService;
 
 	public ProductService(EntityManager entityManager) {
 		this.entityManager = entityManager;
 		this.productDAO = new ProductDAO(entityManager);
+		this.categoryService = new CategoryService(entityManager);
 	}
 
 	private void commitAndCloseTransaction() {
@@ -39,6 +43,15 @@ public class ProductService {
 			this.LOG.error("O produto informado está nulo!");
 			throw new RuntimeException("Product Null");
 		}
+
+		String categoryName = product.getCategory().getName();
+		this.LOG.info("Buscando se ja existe a categoria " + categoryName);
+		Category category = this.categoryService.findByName(categoryName);
+		
+		if (category != null) {
+			product.setCategory(category);
+		}
+		
 		try {
 			getBeginTransaction();
 			this.productDAO.create(product);
