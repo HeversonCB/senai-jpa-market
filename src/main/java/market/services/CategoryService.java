@@ -10,7 +10,7 @@ import market.model.dao.CategoryDAO;
 import market.model.persistence.Category;
 
 public class CategoryService {
-	
+
 	private final Logger LOG = LogManager.getLogger(CategoryService.class);
 	
 	private EntityManager entityManager;
@@ -24,14 +24,15 @@ public class CategoryService {
 	
 	public Category findByName(String name) {
 		if (name == null || name.isEmpty()) {
-			this.LOG.error("O Name não pode ser nulo");
-			throw new RuntimeException("The name is null");
+			this.LOG.error("O Name nao pode ser Nulo!");
+			throw new RuntimeException("The name is null!");
 		}
 		try {
 			return this.categoryDAO.findByName(name.toLowerCase());
 		} catch (NoResultException r) {
-			this.LOG.info("Não foi encontrado categoria, sera criada!");
+			this.LOG.info("Nao foi encontrado Categoria, sera criada!");
 			return null;
 		}
+		
 	}
 }

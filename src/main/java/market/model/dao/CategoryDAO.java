@@ -6,8 +6,8 @@ import market.model.persistence.Category;
 
 public class CategoryDAO {
 	
-private EntityManager entityManager;
-	
+	private EntityManager entityManager;
+
 	public CategoryDAO(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
